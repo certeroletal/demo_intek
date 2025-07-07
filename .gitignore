@@ -1,0 +1,108 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+sdist/
+develop-eggs/
+.tox/
+.nox/
+.coverage
+.cache/
+.pytest_cache/
+pip-wheel-metadata/
+site/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.coverage*
+.hypothesis/
+.mypy_cache/
+.pytest_cache/
+.coveragerc
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.cache
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# VS Code
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Docker
+*.log
+docker-compose.override.yml
+docker-compose.local.yml
+Dockerfile.*
+
+# Logs
+*.log
+logs/
+
+# System files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Subproject virtualenvs
+04_adm/.venv/
+05_ops/.venv/
+06_web/.venv/
+07_raspb/.venv/
+
+# Poetry
+poetry.lock
+
+# Ignore test output
+test-output/
+
+# Ignore secrets
+.env
+*.env
+!04_adm/.env
+!05_ops/.env
+!06_web/.env
+!07_raspb/.env
+
+# Ignore node_modules (if any frontend)
+node_modules/
+
+# Ignore __pypackages__ (PEP 582)
+__pypackages__/

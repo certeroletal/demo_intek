@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "ops"
+version = "0.1.0"
+description = "Plataforma de operación PyroProof"
+authors = ["Juan Carlos Martín Salinas Orellana <jcsalinas@kimun-ai.com>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+# Add your runtime dependencies here, e.g.:
+fastapi = "*"
+sqlalchemy = "*"
+structlog = "*"
+pydantic = "*"
+psycopg2-binary = "*"
+
+[tool.poetry.group.dev.dependencies]
+# Add your development dependencies here, e.g.:
+pytest = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

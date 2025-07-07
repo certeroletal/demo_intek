@@ -1,0 +1,68 @@
+services:
+  adm:
+    build:
+      context: ./04_adm
+      target: develop_image
+    container_name: pp_adm
+    tty: true
+    volumes:
+      - ./:/home/appadmin/app
+      - ext_vol_adm:/home/appadmin/.vscode-server/extensions
+      - ext_insd_vol_adm:/home/appadmin/.vscode-server-insiders/extensions
+    networks:
+      - pp_network
+
+  ops:
+    build:
+      context: ./05_ops
+      target: develop_image
+    container_name: pp_ops
+    tty: true
+    volumes:
+      - ./:/home/appadmin/app
+      - ext_vol_ops:/container/path:/home/appadmin/.vscode-server/extensions
+      - ext_insd_vol_ops:/home/appadmin/.vscode-server-insiders/extensions
+    networks:
+      - pp_network
+
+  web:
+    build:
+      context: ./06_web
+      target: develop_image
+    container_name: pp_web
+    tty: true
+    volumes:
+      - ./:/home/appadmin/app
+      - ext_vol_web:/home/appadmin/.vscode-server/extensions
+      - ext_insd_vol_web:/home/appadmin/.vscode-server-insiders/extensions
+    networks:
+      - pp_network
+
+  raspb:
+    build:
+      context: ./07_raspb
+      target: develop_image
+    container_name: pp_raspb
+    tty: true
+    volumes:
+      - ./:/home/appadmin/app
+      - ext_vol_raspb:/home/appadmin/.vscode-server/extensions
+      - ext_insd_vol_raspb:/home/appadmin/.vscode-server-insiders/extensions
+    networks:
+      - pp_network
+    
+
+
+volumes:
+  ext_vol_adm:
+  ext_insd_vol_adm:
+  ext_vol_ops:
+  ext_insd_vol_ops:
+  ext_vol_raspb:
+  ext_insd_vol_raspb:
+  ext_vol_web:
+  ext_insd_vol_web:
+
+
+networks:
+  pp_network:
