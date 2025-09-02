@@ -38,6 +38,13 @@ export default function RealtimeStatusCard({ pump }: RealtimeStatusCardProps) {
     }
   };
 
+  const DataRow = ({ label, value, unit = '' }: { label: string; value: string | number; unit?: string }) => (
+    <div className="grid grid-cols-2 gap-x-4">
+      <span className="font-semibold text-gray-600 text-sm">{label}:</span>
+      <span className="text-gray-800 font-medium text-sm">{value} {unit}</span>
+    </div>
+  );
+
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
       <div className="flex items-center mb-4">
@@ -48,62 +55,41 @@ export default function RealtimeStatusCard({ pump }: RealtimeStatusCardProps) {
         </div>
         <h2 className="text-xl font-bold text-gray-800">Estado en Tiempo Real</h2>
       </div>
-      <div className="space-y-3 text-sm">
-        <div className="flex justify-between items-center">
-          <span className="font-semibold text-gray-600">Estado Operativo:</span>
+      <div className="space-y-3">
+        <div className="grid grid-cols-2 gap-x-4">
+          <span className="font-semibold text-gray-600 text-sm">Estado Operativo:</span>
           <span className={`font-bold text-base ${getStatusColor(estado_operativo)}`}>{estado_operativo}</span>
         </div>
-        {/* Changed grid-cols-2 to grid-cols-1 on mobile, sm:grid-cols-2 on small screens and up */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
-          <div className="flex justify-between">
-            <span className="font-semibold text-gray-600">Presión Sistema:</span>
-            <span className="text-gray-800 font-medium">{presion_sistema} PSI</span>
+        
+        <div className="border-t pt-3 mt-3">
+          <h3 className="font-semibold text-gray-700 mb-2">Parámetros de Presión</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
+            <DataRow label="Presión Sistema" value={presion_sistema} unit="PSI" />
+            <DataRow label="Presión Succión" value={presion_succion} unit="PSI" />
+            <DataRow label="Presión Descarga" value={presion_descarga} unit="PSI" />
+            <DataRow label="Cut-In" value={presion_arranque_cut_in} unit="PSI" />
+            <DataRow label="Cut-Out" value={presion_parada_cut_out} unit="PSI" />
           </div>
-          <div className="flex justify-between">
-            <span className="font-semibold text-gray-600">Presión Succión:</span>
-            <span className="text-gray-800 font-medium">{presion_succion} PSI</span>
+        </div>
+
+        <div className="border-t pt-3 mt-3">
+          <h3 className="font-semibold text-gray-700 mb-2">Parámetros de Motor</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
+            <DataRow label="Caudal" value={caudal} unit="GPM" />
+            <DataRow label="RPM Motor" value={rpm_motor_real} unit="RPM" />
+            {nivel_combustible !== undefined && (
+              <DataRow label="Nivel Combustible" value={nivel_combustible} unit="%" />
+            )}
+            <DataRow label="Arranques Motor" value={arranques_motor} />
           </div>
-          <div className="flex justify-between">
-            <span className="font-semibold text-gray-600">Presión Descarga:</span>
-            <span className="text-gray-800 font-medium">{presion_descarga} PSI</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="font-semibold text-gray-600">Caudal:</span>
-            <span className="text-gray-800 font-medium">{caudal} GPM</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="font-semibold text-gray-600">RPM Motor:</span>
-            <span className="text-gray-800 font-medium">{rpm_motor_real} RPM</span>
-          </div>
-          {nivel_combustible !== undefined && (
-            <div className="flex justify-between">
-              <span className="font-semibold text-gray-600">Nivel Combustible:</span>
-              <span className="text-gray-800 font-medium">{nivel_combustible}%</span>
-            </div>
-          )}
-          <div className="flex justify-between">
-            <span className="font-semibold text-gray-600">Alimentación:</span>
-            <span className="text-gray-800 font-medium">{estado_fuente_alimentacion}</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="font-semibold text-gray-600">Batería 1:</span>
-            <span className="text-gray-800 font-medium">{voltaje_bateria_1} V</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="font-semibold text-gray-600">Batería 2:</span>
-            <span className="text-gray-800 font-medium">{voltaje_bateria_2} V</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="font-semibold text-gray-600">Arranques Motor:</span>
-            <span className="text-gray-800 font-medium">{arranques_motor}</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="font-semibold text-gray-600">Cut-In:</span>
-            <span className="text-gray-800 font-medium">{presion_arranque_cut_in} PSI</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="font-semibold text-gray-600">Cut-Out:</span>
-            <span className="text-gray-800 font-medium">{presion_parada_cut_out} PSI</span>
+        </div>
+
+        <div className="border-t pt-3 mt-3">
+          <h3 className="font-semibold text-gray-700 mb-2">Baterías y Alimentación</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
+            <DataRow label="Alimentación" value={estado_fuente_alimentacion} />
+            <DataRow label="Batería 1" value={voltaje_bateria_1} unit="V" />
+            <DataRow label="Batería 2" value={voltaje_bateria_2} unit="V" />
           </div>
         </div>
       </div>

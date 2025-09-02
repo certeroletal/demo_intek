@@ -9,6 +9,11 @@ import PumpPlateData from '@/components/PumpPlateData';
 import PumpMotorData from '@/components/PumpMotorData';
 import PumpGeneralInfoCard from '@/components/PumpGeneralInfoCard';
 
+// Icon for "Volver"
+const BackIcon = () => (
+  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+);
+
 export default function PumpDetailsPage() {
   const { id } = useParams();
   const router = useRouter();
@@ -81,9 +86,10 @@ export default function PumpDetailsPage() {
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Detalles de la Bomba: {pumpSystem.cliente.planta}</h1>
           <button
             onClick={handleBack}
-            className="px-4 py-2 text-sm font-medium text-white bg-gray-600 rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+            className="p-2 rounded-full bg-gray-600 text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+            title="Volver al Dashboard"
           >
-            Volver
+            <BackIcon />
           </button>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
