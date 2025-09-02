@@ -1,0 +1,8 @@
+{
+  "/login/page": "app/login/page.js",
+  "/api/pump_systems/route": "app/api/pump_systems/route.js",
+  "/api/pump_systems/[id]/route": "app/api/pump_systems/[id]/route.js",
+  "/(dashboard)/page": "app/(dashboard)/page.js",
+  "/(dashboard)/pump-details/[id]/page": "app/(dashboard)/pump-details/[id]/page.js",
+  "/(dashboard)/setup/page": "app/(dashboard)/setup/page.js"
+}
