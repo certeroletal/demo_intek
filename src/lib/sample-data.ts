@@ -62,11 +62,19 @@ export type PumpSystem = {
     nivel_combustible?: number; // For diesel pumps
     estado_fuente_alimentacion: string;
   };
-  // Nuevos campos para alarmas
+  // Nuevos campos para alarmas (updated to match API generated alarms)
   alarmas_activas?: {
-    codigo: string;
-    descripcion: string;
-    severidad: string;
+    fecha: string;
+    hora: string;
+    id_evento: string;
+    mensaje: string;
+    tipo_alarma: string;
+    bomba_asociada: string;
+    fecha_inicio: string;
+    hora_inicio: string;
+    fecha_fin?: string;
+    hora_fin?: string;
+    estado: 'activa' | 'resuelta';
   }[];
   todas_las_alarmas?: {
     fecha: string;
@@ -152,9 +160,9 @@ export const pumpSystemsData: PumpSystem[] = [
       nivel_combustible: 80, // For diesel pumps
       estado_fuente_alimentacion: 'Normal',
     },
+    // Updated alarm structure in sample data to match API generated alarms
     alarmas_activas: [
-      { codigo: "ALARM-001", descripcion: "Baja presión de agua", severidad: "Crítica" },
-      { codigo: "WARN-002", descripcion: "Mantenimiento pendiente", severidad: "Advertencia" },
+      { fecha: "2023-01-01", hora: "10:30", id_evento: "ALARM-001", mensaje: "Baja presión de agua", tipo_alarma: "Presión", bomba_asociada: "Bomba Principal", fecha_inicio: "2023-01-01", hora_inicio: "10:30", estado: "activa" },
     ],
     todas_las_alarmas: [
       { fecha: "2023-01-01", hora: "10:00", id_evento: "EVT-001", mensaje: "Inicio de operación", tipo_alarma: "Operación", bomba_asociada: "Bomba Principal", fecha_inicio: "2023-01-01", hora_inicio: "10:00", estado: "resuelta" },

@@ -10,3 +10,4 @@ dist/
 # Ignorar variables de entorno
 .env
 .env.local
+.vercel
