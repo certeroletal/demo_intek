@@ -1,4 +1,12 @@
+# Ignorar carpetas de dependencias y build
 node_modules/
+.next/
+out/
+dist/
 
-node_modules/
-node_modules/
+# Ignorar archivos binarios grandes generados
+*.node
+
+# Ignorar variables de entorno
+.env
+.env.local
