@@ -84,9 +84,9 @@
       "version_software": "1.0.0"
     },
     "estado_tiempo_real": {
-      "presion_sistema": 146.13,
-      "voltaje_bateria_1": 25.3,
-      "voltaje_bateria_2": 23.12,
+      "presion_sistema": 147.33,
+      "voltaje_bateria_1": 25.07,
+      "voltaje_bateria_2": 23.38,
       "arranques_motor": 150,
       "presion_arranque_cut_in": 110,
       "presion_parada_cut_out": 130,
@@ -94,11 +94,77 @@
       "presion_succion": 10,
       "presion_descarga": 120,
       "caudal": 500,
-      "rpm_motor_real": 1777,
+      "rpm_motor_real": 1727,
       "nivel_combustible": 80,
       "estado_fuente_alimentacion": "Normal"
     },
     "alarmas_activas": [
+      {
+        "fecha": "2025-09-02",
+        "hora": "16:24:14",
+        "id_evento": "ALARM-1756844654855",
+        "mensaje": "Temperatura del motor elevada.",
+        "tipo_alarma": "Presión",
+        "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
+        "fecha_inicio": "2025-09-02",
+        "hora_inicio": "16:24:14",
+        "estado": "activa"
+      },
+      {
+        "fecha": "2025-09-02",
+        "hora": "16:24:09",
+        "id_evento": "ALARM-1756844649857",
+        "mensaje": "Presión fuera de rango.",
+        "tipo_alarma": "Falla Eléctrica",
+        "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
+        "fecha_inicio": "2025-09-02",
+        "hora_inicio": "16:24:09",
+        "estado": "activa"
+      },
+      {
+        "fecha": "2025-09-02",
+        "hora": "16:24:04",
+        "id_evento": "ALARM-1756844644864",
+        "mensaje": "Falla en el suministro eléctrico.",
+        "tipo_alarma": "Temperatura",
+        "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
+        "fecha_inicio": "2025-09-02",
+        "hora_inicio": "16:24:04",
+        "estado": "activa"
+      },
+      {
+        "fecha": "2025-09-02",
+        "hora": "16:23:49",
+        "id_evento": "ALARM-1756844629826",
+        "mensaje": "Alarma de caudal.",
+        "tipo_alarma": "Temperatura",
+        "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
+        "fecha_inicio": "2025-09-02",
+        "hora_inicio": "16:23:49",
+        "estado": "activa"
+      },
+      {
+        "fecha": "2025-09-02",
+        "hora": "16:23:44",
+        "id_evento": "ALARM-1756844624827",
+        "mensaje": "Temperatura del motor elevada.",
+        "tipo_alarma": "Falla Eléctrica",
+        "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
+        "fecha_inicio": "2025-09-02",
+        "hora_inicio": "16:23:44",
+        "estado": "activa"
+      },
+      {
+        "fecha": "2025-09-02",
+        "hora": "16:23:34",
+        "id_evento": "ALARM-1756844614828",
+        "mensaje": "Presión fuera de rango.",
+        "tipo_alarma": "Falla Eléctrica",
+        "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
+        "fecha_inicio": "2025-09-02",
+        "hora_inicio": "16:23:34",
+        "estado": "activa"
+      },
       {
         "fecha": "2025-09-02",
         "hora": "16:22:54",
@@ -112,17 +178,6 @@
       },
       {
         "fecha": "2025-09-02",
-        "hora": "16:22:44",
-        "id_evento": "ALARM-1756844564855",
-        "mensaje": "Alarma de caudal.",
-        "tipo_alarma": "Nivel",
-        "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
-        "fecha_inicio": "2025-09-02",
-        "hora_inicio": "16:22:44",
-        "estado": "activa"
-      },
-      {
-        "fecha": "2025-09-02",
         "hora": "16:22:29",
         "id_evento": "ALARM-1756844549829",
         "mensaje": "Mantenimiento preventivo requerido.",
@@ -130,17 +185,6 @@
         "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
         "fecha_inicio": "2025-09-02",
         "hora_inicio": "16:22:29",
-        "estado": "activa"
-      },
-      {
-        "fecha": "2025-09-02",
-        "hora": "16:22:04",
-        "id_evento": "ALARM-1756844524851",
-        "mensaje": "Falla en el suministro eléctrico.",
-        "tipo_alarma": "Falla Eléctrica",
-        "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
-        "fecha_inicio": "2025-09-02",
-        "hora_inicio": "16:22:04",
         "estado": "activa"
       },
       {
@@ -178,6 +222,98 @@
       }
     ],
     "todas_las_alarmas": [
+      {
+        "fecha": "2025-09-02",
+        "hora": "16:24:14",
+        "id_evento": "ALARM-1756844654855",
+        "mensaje": "Temperatura del motor elevada.",
+        "tipo_alarma": "Presión",
+        "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
+        "fecha_inicio": "2025-09-02",
+        "hora_inicio": "16:24:14",
+        "estado": "activa"
+      },
+      {
+        "fecha": "2025-09-02",
+        "hora": "16:24:09",
+        "id_evento": "ALARM-1756844649857",
+        "mensaje": "Presión fuera de rango.",
+        "tipo_alarma": "Falla Eléctrica",
+        "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
+        "fecha_inicio": "2025-09-02",
+        "hora_inicio": "16:24:09",
+        "estado": "activa"
+      },
+      {
+        "fecha": "2025-09-02",
+        "hora": "16:24:04",
+        "id_evento": "ALARM-1756844644864",
+        "mensaje": "Falla en el suministro eléctrico.",
+        "tipo_alarma": "Temperatura",
+        "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
+        "fecha_inicio": "2025-09-02",
+        "hora_inicio": "16:24:04",
+        "estado": "activa"
+      },
+      {
+        "fecha": "2025-09-02",
+        "hora": "16:23:49",
+        "id_evento": "ALARM-1756844629826",
+        "mensaje": "Alarma de caudal.",
+        "tipo_alarma": "Temperatura",
+        "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
+        "fecha_inicio": "2025-09-02",
+        "hora_inicio": "16:23:49",
+        "estado": "activa"
+      },
+      {
+        "fecha": "2025-09-02",
+        "hora": "16:23:44",
+        "id_evento": "ALARM-1756844624827",
+        "mensaje": "Temperatura del motor elevada.",
+        "tipo_alarma": "Falla Eléctrica",
+        "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
+        "fecha_inicio": "2025-09-02",
+        "hora_inicio": "16:23:44",
+        "estado": "activa"
+      },
+      {
+        "fecha": "2025-09-02",
+        "hora": "16:23:39",
+        "id_evento": "ALARM-1756844619853",
+        "mensaje": "Falla en el suministro eléctrico.",
+        "tipo_alarma": "Temperatura",
+        "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
+        "fecha_inicio": "2025-09-02",
+        "hora_inicio": "16:23:39",
+        "estado": "resuelta",
+        "fecha_fin": "2025-09-02",
+        "hora_fin": "16:23:44"
+      },
+      {
+        "fecha": "2025-09-02",
+        "hora": "16:23:34",
+        "id_evento": "ALARM-1756844614828",
+        "mensaje": "Presión fuera de rango.",
+        "tipo_alarma": "Falla Eléctrica",
+        "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
+        "fecha_inicio": "2025-09-02",
+        "hora_inicio": "16:23:34",
+        "estado": "activa"
+      },
+      {
+        "fecha": "2025-09-02",
+        "hora": "16:23:29",
+        "id_evento": "ALARM-1756844609833",
+        "mensaje": "Temperatura del motor elevada.",
+        "tipo_alarma": "Temperatura",
+        "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
+        "fecha_inicio": "2025-09-02",
+        "hora_inicio": "16:23:29",
+        "estado": "resuelta",
+        "fecha_fin": "2025-09-02",
+        "hora_fin": "16:24:09"
+      },
       {
         "fecha": "2025-09-02",
         "hora": "16:22:59",
@@ -224,7 +360,9 @@
         "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
         "fecha_inicio": "2025-09-02",
         "hora_inicio": "16:22:44",
-        "estado": "activa"
+        "estado": "resuelta",
+        "fecha_fin": "2025-09-02",
+        "hora_fin": "16:23:39"
       },
       {
         "fecha": "2025-09-02",
@@ -272,7 +410,9 @@
         "bomba_asociada": "TERMINAL MARÍTIMO QUINTERO (P-802B)",
         "fecha_inicio": "2025-09-02",
         "hora_inicio": "16:22:04",
-        "estado": "activa"
+        "estado": "resuelta",
+        "fecha_fin": "2025-09-02",
+        "hora_fin": "16:23:59"
       },
       {
         "fecha": "2025-09-02",
