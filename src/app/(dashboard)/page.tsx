@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import type { PumpSystem } from '@/lib/sample-data';
 import ControllerInfoCard from '@/components/ControllerInfoCard';
