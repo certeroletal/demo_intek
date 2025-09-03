@@ -10,12 +10,14 @@ import RealtimeStatusCard from '@/components/RealtimeStatusCard';
 import ActiveAlarmsList from '@/components/ActiveAlarmsList';
 import AllAlarmsTable from '@/components/AllAlarmsTable';
 
+// Icon for "Ver Detalles de la Bomba"
 const InfoIcon = () => (
   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
   </svg>
 );
 
+// Icon for "Cerrar Sesión"
 const LogoutIcon = () => (
   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
@@ -28,8 +30,10 @@ export default function Home() {
   const [selectedSystem, setSelectedSystem] = useState<PumpSystem | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  // ✅ Inicializa el router (era el error principal)
   const router = useRouter();
 
+  // Usa una referencia para selectedSystem en fetchData
   const selectedSystemRef = useRef(selectedSystem);
   useEffect(() => {
     selectedSystemRef.current = selectedSystem;
@@ -42,8 +46,10 @@ export default function Home() {
         const data = await response.json();
         setPumpSystems(data);
         
+        // Usa la referencia para obtener el valor actual
         const currentSelectedSystem = selectedSystemRef.current;
 
+        // Lógica para mantener el sistema seleccionado
         if (data.length === 1) {
           setSelectedSystem(data[0]);
         } else if (data.length > 1 && currentSelectedSystem) {
@@ -69,9 +75,9 @@ export default function Home() {
   }, [setPumpSystems, setSelectedSystem]);
 
   useEffect(() => {
-    fetchData();
-    const intervalId = setInterval(fetchData, 5000);
-    return () => clearInterval(intervalId);
+    fetchData(); // Initial fetch
+    const intervalId = setInterval(fetchData, 5000); // Poll every 5 seconds
+    return () => clearInterval(intervalId); // Cleanup on component unmount
   }, [fetchData]);
 
   const handleSelectSystem = (system: PumpSystem) => {
@@ -80,6 +86,7 @@ export default function Home() {
       .replace(/[^a-zA-Z0-9\s-]/g, "")
       .replace(/\s+/g, '-')
       .toLowerCase();
+    // ✅ router.push ahora funciona porque router está definido
     router.push(`/pump-details/${slug}`);
   };
 
@@ -99,7 +106,7 @@ export default function Home() {
     <div>
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Dashboard de Monitoreo</h1>
-        <div className="flex space-x-2">
+        <div className="flex space-x-2"> {/* Container for buttons */}
           {selectedSystem && (
             <button
               onClick={() => handleSelectSystem(selectedSystem)}

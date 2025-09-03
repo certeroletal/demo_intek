@@ -1,0 +1,16 @@
+# Ignorar carpetas de dependencias y build
+node_modules/
+.next/
+out/
+dist/
+
+# Ignorar archivos binarios grandes generados
+*.node
+
+# Ignorar variables de entorno
+.env
+.env.local
+.vercel
+
+# Backup files
+*.bak
