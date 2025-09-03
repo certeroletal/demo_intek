@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useAuth } from '@/contexts/AuthContext';
 
 // Inline SVGs for icons (keeping them as they might be useful for other parts of the app, but not used in this specific login form anymore)
 const UserIcon = () => (
@@ -13,7 +13,7 @@ const LockIcon = () => (
 );
 
 export default function LoginPage() {
-  const router = useRouter();
+  const { login } = useAuth();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -35,8 +35,7 @@ export default function LoginPage() {
     };
 
     if (USERS[username] && USERS[username].password === password) {
-      sessionStorage.setItem('isLoggedIn', 'true');
-      router.push('/');
+      login();
     } else {
       setError('Credenciales incorrectas. Inténtalo de nuevo.');
     }

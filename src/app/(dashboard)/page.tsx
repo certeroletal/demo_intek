@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useAuth } from '@/contexts/AuthContext';
 import type { PumpSystem } from '@/lib/sample-data';
 import ControllerInfoCard from '@/components/ControllerInfoCard';
 import RealtimeStatusCard from '@/components/RealtimeStatusCard';
@@ -20,7 +20,7 @@ const LogoutIcon = () => (
 );
 
 export default function Home() {
-  const router = useRouter();
+  const { logout } = useAuth();
   const [pumpSystems, setPumpSystems] = useState<PumpSystem[]>([]);
   const [selectedSystem, setSelectedSystem] = useState<PumpSystem | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -67,19 +67,12 @@ export default function Home() {
   }, [setPumpSystems, setSelectedSystem]); // Removed selectedSystem from dependencies
 
   useEffect(() => {
-    // Check authentication
-    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
-    if (!isLoggedIn) {
-      router.push('/login');
-      return;
-    }
-
     fetchData(); // Initial fetch
 
     const intervalId = setInterval(fetchData, 5000); // Poll every 5 seconds
 
     return () => clearInterval(intervalId); // Cleanup on component unmount
-  }, [fetchData, router]); // fetchData is now a stable dependency
+  }, [fetchData]); // fetchData is now a stable dependency
 
   const handleSelectSystem = (system: PumpSystem) => {
     const slug = system.cliente.planta
@@ -87,12 +80,11 @@ export default function Home() {
       .replace(/[^a-zA-Z0-9\s-]/g, "")
       .replace(/\s+/g, '-')
       .toLowerCase();
-    router.push(`/pump-details/${slug}`);
+    // router.push(`/pump-details/${slug}`);
   };
 
   const handleLogout = () => {
-    sessionStorage.removeItem('isLoggedIn'); // Clear login flag
-    router.push('/login'); // Redirect to login page
+    logout();
   };
 
   if (isLoading) {
