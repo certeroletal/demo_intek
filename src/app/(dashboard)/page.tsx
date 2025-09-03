@@ -80,7 +80,7 @@ export default function Home() {
       .replace(/[^a-zA-Z0-9\s-]/g, "")
       .replace(/\s+/g, '-')
       .toLowerCase();
-    // router.push(`/pump-details/${slug}`);
+    router.push(`/pump-details/${slug}`);
   };
 
   const handleLogout = () => {
