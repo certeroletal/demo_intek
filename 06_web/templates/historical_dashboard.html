@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial y Mantenimiento Predictivo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header>
+        
+        {% if session.logged_in %}
+            <div class="user-info">
+                <span>Bienvenido, <strong>{{ session.username }}</strong> (Rol: {{ session.role }})</span>
+                <a href="{{ url_for('logout') }}" class="logout-button">Cerrar Sesión</a>
+            </div>
+        {% endif %}
+        <button id="darkModeToggle" class="dark-mode-toggle">Modo Oscuro</button>
+
+        <nav class="tab-nav">
+            <a href="{{ url_for('index') }}" class="tab-button">📊 Monitoreo</a>
+            {% if session.role in ['avanzado', 'admin'] %}
+                <a href="{{ url_for('historical_dashboard') }}" class="tab-button active">📈 Historial</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="flash-container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flash-messages">
+            {% for category, message in messages %}
+                <li class="flash-{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    </div>
+
+    <main id="dashboard-container" class="dashboard-grid">
+
+        {# --- SECCIÓN AVANZADA (Historial y Mantenimiento Predictivo) --- #}
+        {% if session.role in ['avanzado', 'admin'] %}
+        <div class="dashboard-section full-width">
+            <h2>Datos Históricos de Bombas</h2>
+            <div class="pump-card">
+                <div class="card-body">
+                    <div id="historicalChartContainer" style="height: 300px; margin-bottom: 20px;">
+                        <canvas id="pressureHistogram"></canvas>
+                    </div>
+                    <div class="export-controls">
+                        <label for="startDate">Desde:</label>
+                        <input type="date" id="startDate">
+                        <label for="endDate">Hasta:</label>
+                        <input type="date" id="endDate">
+                        <button id="filterDataBtn">Filtrar</button>
+                        <button id="exportDataBtn">Exportar a CSV</button>
+                    </div>
+                    <h3>Últimos Registros</h3>
+                    <table id="historicalDataTable" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Fecha y Hora</th>
+                                <th>Presión Descarga (PSI)</th>
+                                <th>Voltaje Bat. 1 (V)</th>
+                                <th>Corriente Bat. 1 (A)</th>
+                                <th>Motor en Marcha</th>
+                                <th>Mensaje</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be inserted here by JavaScript -->
+                        </tbody>
+                    </table>
+                    <div class="pagination-controls">
+                        <button id="prevPage" disabled>Anterior</button>
+                        <span id="pageInfo">Página 1 de 1</span>
+                        <button id="nextPage" disabled>Siguiente</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+    </main>
+
+    <footer>
+        <p>Aplicación de Monitoreo v1.0</p>
+    </footer>
+
+    {# --- MODAL DE DETALLE DE ALARMA --- #}
+    <div id="alarmDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Detalle de Alarma</h2>
+            <p><strong>Descripción:</strong> <span id="modalDescription"></span></p>
+            <p><strong>Hora:</strong> <span id="modalTimestamp"></span></p>
+            <p><strong>Ubicación:</strong> <span id="modalLocation"></span></p>
+            <p><strong>Planta:</strong> <span id="modalPlant"></span></p>
+            <p><strong>Coordenadas:</strong> <span id="modalCoordinates"></span></p>
+            <p><strong>Solución Sugerida:</strong> <span id="modalSolution"></span></p>
+        </div>
+    </div>
+
+</body>
+</html>

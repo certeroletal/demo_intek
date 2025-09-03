@@ -1,0 +1,93 @@
+﻿
+TECHNICAL DATA - MODBUS COMMUNICATION FOR DIESEL ENGINE FIRE PUMP CONTROLLER
+To modify IP and SubNet Mask: Go to Config / Advanced / Network Config. Check the "Manual" box. Enter the desired IP address and SubNet Mask. Press
+Generals Characteristics	Apply.
+Connection Type
+Shielded female connector RJ45
+
+BINARY
+16 boolean (1 = TRUE, 0 = FALSE)
+
+10.0.1.0 – 10.255.255.255 (Class A private)
+
+
+DIGITAL VALUES
+16 bits representing a number. The result refers to a list of values
+Possible IP adress
+172.16.0.0 – 172.31.255.255 (Class B private)
+
+
+
+
+192.168.0.0 – 192.168.255.255 (Class C private)
+
+
+
+Frame Format
+TCP/IP
+
+
+ANALOG VALUES
+16 bits representing a number. Analog signals values are multiply by 10 for communication purpose, unless otherwise specified.
+
+
+WORDS 40001-40040
+String
+Serial Number
+
+WORDS 40041-40080
+String
+Model
+
+
+
+
+
+WORDS 40081-40120
+String
+Package Name
+
+WORDS 40121-40160
+String
+Software Version
+
+
+
+
+
+WORD 40161
+ANALOG VALUES
+Nominal AC Voltage
+(V)
+
+WORD 40162
+ANALOG VALUES
+Nominal Battery Voltage
+(V)
+
+
+
+
+
+WORD 40163
+NA
+
+WORD 40164
+NA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

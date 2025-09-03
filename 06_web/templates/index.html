@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Monitoreo de Bombas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header>
+        
+        {% if session.logged_in %}
+            <div class="user-info">
+                <span>Bienvenido, <strong>{{ session.username }}</strong> (Rol: {{ session.role }})</span>
+                <a href="{{ url_for('logout') }}" class="logout-button">Cerrar Sesión</a>
+            </div>
+        {% endif %}
+        <button id="darkModeToggle" class="dark-mode-toggle">Modo Oscuro</button>
+
+        <nav class="tab-nav">
+            <a href="{{ url_for('index') }}" class="tab-button active">📊 Monitoreo</a>
+            {% if session.role in ['avanzado', 'admin'] %}
+                <a href="{{ url_for('historical_dashboard') }}" class="tab-button">📈 Historial</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="flash-container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flash-messages">
+            {% for category, message in messages %}
+                <li class="flash-{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    </div>
+
+    <main id="dashboard-container" class="dashboard-grid">
+
+        {# --- SECCIÓN DE INFORMACIÓN GENERAL (Visible para todos los que tienen acceso) --- #}
+        {% if session.role in ['intermedio', 'mantenimiento', 'avanzado', 'admin'] %}
+        <div class="dashboard-section full-width">
+            <h2>Información del Controlador</h2>
+            <div class="pump-card">
+                <div class="card-body">
+                    <div class="data-point">
+                        <span class="label">Modelo:</span>
+                        <span class="value" id="pumpModel"></span>
+                    </div>
+                    <div class="data-point">
+                        <span class="label">N/S:</span>
+                        <span class="value" id="pumpSerial"></span>
+                    </div>
+                    <div class="data-point">
+                        <span class="label">Versión de Software:</span>
+                        <span class="value" id="pumpSoftwareVersion"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {# --- SECCIÓN DE ALARMAS (Visible para casi todos) --- #}
+        {% if session.role in ['basico', 'intermedio', 'mantenimiento', 'avanzado', 'admin'] %}
+        <div class="dashboard-section">
+            <h2>Alarmas Activas</h2>
+            <div class="pump-card">
+                <div class="card-body">
+                    <ul id="alarmsList" class="alarms-list">
+                        <!-- Las alarmas se insertarán aquí dinámicamente por JS -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {# --- SECCIÓN DE ESTADO (Visible para roles intermedios y superiores) --- #}
+        {% if session.role in ['intermedio', 'mantenimiento', 'avanzado', 'admin'] %}
+        <div class="dashboard-section">
+            <h2>Estado en Tiempo Real</h2>
+            <div class="pump-card">
+                <div class="card-body">
+                    <div class="data-point">
+                        <span class="label">Presión del Sistema:</span>
+                        <span class="value" id="systemPressure"></span>
+                    </div>
+                    <div class="data-point">
+                        <span class="label">Voltaje Batería 1:</span>
+                        <span class="value" id="battery1Voltage"></span>
+                    </div>
+                    <div class="data-point">
+                        <span class="label">Voltaje Batería 2:</span>
+                        <span class="value" id="battery2Voltage"></span>
+                    </div>
+                    <div class="data-point">
+                        <span class="label">Arranques del Motor:</span>
+                        <span class="value" id="startCount"></span>
+                    </div>
+                     <div class="data-point">
+                        <span class="label">Presión de Arranque (Cut-In):</span>
+                        <span class="value" id="cutInPressure"></span>
+                    </div>
+                    <div class="data-point">
+                        <span class="label">Presión de Parada (Cut-Out):</span>
+                        <span class="value" id="cutOutPressure"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {# --- SECCIÓN DE TODAS LAS ALARMAS --- #}
+        <div class="dashboard-section full-width">
+            <h2>Todas las Alarmas</h2>
+            <div class="pump-card">
+                <div class="card-body">
+                    <table id="allAlarmsTable">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>ID Evento</th>
+                                <th>Mensaje</th>
+                            </tr>
+                        </thead>
+                        <tbody id="allAlarmsTableBody">
+                            <!-- Data will be loaded by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        {# --- SECCIÓN DE HISTORIAL RECIENTE (Últimas 12 horas) --- #}
+        <div class="dashboard-section full-width">
+            <h2>Historial Reciente (Últimas 12 horas)</h2>
+            <div class="pump-card">
+                <div class="card-body">
+                    <div class="filters">
+                        <input type="text" id="eventFilter" onkeyup="filterTable()" placeholder="Filtrar por evento...">
+                        <input type="text" id="hourFilter" onkeyup="filterTable()" placeholder="Filtrar por hora (HH:MM)...">
+                    </div>
+                    <table id="recentHistoryTable">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>Presión de Descarga</th>
+                                <th>Voltaje Batería 1</th>
+                                <th>Voltaje Batería 2</th>
+                                <th>Motor Encendido</th>
+                                <th>ID Evento</th>
+                                <th>Mensaje</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentHistoryTableBody">
+                            <!-- Data will be loaded by JavaScript -->
+                        </tbody>
+                    </table>
+                    <div class="pagination-controls">
+                        <button id="prevPageRecent" class="pagination-button">Anterior</button>
+                        <span id="pageInfoRecent">Página 1 de 1</span>
+                        <button id="nextPageRecent" class="pagination-button">Siguiente</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+    </main>
+
+    <footer>
+        <p>Aplicación de Monitoreo v1.0</p>
+    </footer>
+
+    {# --- MODAL DE DETALLE DE ALARMA --- #}
+    <div id="alarmDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Detalle de Alarma</h2>
+            <p><strong>Descripción:</strong> <span id="modalDescription"></span></p>
+            <p><strong>Hora:</strong> <span id="modalTimestamp"></span></p>
+            <p><strong>Ubicación:</strong> <span id="modalLocation"></span></p>
+            <p><strong>Planta:</strong> <span id="modalPlant"></span></p>
+            <p><strong>Coordenadas:</strong> <span id="modalCoordinates"></span></p>
+            <p><strong>Solución Sugerida:</strong> <span id="modalSolution"></span></p>
+        </div>
+    </div>
+
+</body>
+</html>

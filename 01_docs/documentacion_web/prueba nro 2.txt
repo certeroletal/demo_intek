@@ -1,0 +1,307 @@
+﻿ Conexión cerrada.
+(modbus_env) admin@raspberrypi:~/modbus_test $ python explorador_descriciones.py 
+🔍 Intentando conectar a Modbus TCP en 192.168.10.20:502 (Unit ID: 1, Timeout: 3s)
+✅ Conectado al dispositivo Modbus.
+--- Iniciando lectura de registros con descripción ---
+✅ Serial Number (Reg: 40001): "Z1347732"
+✅ Model (Reg: 40041): "GPD-12-220"
+✅ Package Name (Reg: 40081): "Diesel Firepump"
+✅ Software Version (Reg: 40121): "2.9.1.1"
+✅ Nominal AC Voltage (Reg: 40161): 220 V
+✅ Nominal Battery Voltage (Reg: 40162): 12 V
+✅ Alarms Activation 1 (Reg: 41001): 
+  -> Bit 6: Engine Trouble
+✅ Alarms Activation 4 (Reg: 41004): 
+  -> Bit 11: Engine Low Temperature
+✅ Battery 1 Voltage (Reg: 42001): 13.90 V
+✅ Battery 2 Voltage (Reg: 42002): 13.80 V
+✅ Battery 2 Current (Reg: 42004): 0.40 A
+✅ System Pressure (Reg: 42007): 79.00 chosen unit
+✅ NFPA Alarms 2 (Reg: 42013): 
+  -> Bit 11: Control switch in manual high
+✅ NFPA Alarms 3 (Reg: 42014): 
+  -> Bit 13: Low engine temperature high
+✅ NFPA Alarms 4 (Reg: 42015): 
+  -> Bit 10: Battery #1 OK high
+  -> Bit 11: Battery #2 OK high
+✅ Start Count (Reg: 42016): 2
+✅ Hours since last run (Reg: 42018): 13394 Hours
+✅ Cut-In (Reg: 43029): 90 PSI
+✅ Cut-Out (Reg: 43030): 110 PSI
+
+✨ Total de 19 registros/grupos de alarma con datos significativos mostrados.
+
+🔌 Conexión cerrada.
+(modbus_env) admin@raspberrypi:~/modbus_test $ python explorador_descriciones.py 
+🔍 Intentando conectar a Modbus TCP en 192.168.10.20:502 (Unit ID: 1, Timeout: 3s)
+✅ Conectado al dispositivo Modbus.
+--- Iniciando lectura de registros con descripción ---
+✅ Serial Number (Reg: 40001): "Z1347732"
+✅ Model (Reg: 40041): "GPD-12-220"
+✅ Package Name (Reg: 40081): "Diesel Firepump"
+✅ Software Version (Reg: 40121): "2.9.1.1"
+✅ Nominal AC Voltage (Reg: 40161): 220 V
+✅ Nominal Battery Voltage (Reg: 40162): 12 V
+✅ Alarms Activation 1 (Reg: 41001): 
+  -> Bit 6: Engine Trouble
+✅ Alarms Activation 2 (Reg: 41002): 
+  -> Bit 15: Pump On Demand
+✅ Alarms Activation 4 (Reg: 41004): 
+  -> Bit 11: Engine Low Temperature
+✅ Battery 1 Voltage (Reg: 42001): 13.80 V
+✅ Battery 2 Voltage (Reg: 42002): 13.80 V
+✅ Battery 2 Current (Reg: 42004): 1.20 A
+✅ System Pressure (Reg: 42007): 79.00 chosen unit
+✅ NFPA Alarms 1 (Reg: 42012): 
+  -> Bit 15: Resting high
+✅ NFPA Alarms 2 (Reg: 42013): 
+  -> Bit 0: Pressure start demand high
+  -> Bit 6: Audible alarm high
+  -> Bit 9: Pump demand high
+  -> Bit 10: Control switch in auto high
+✅ NFPA Alarms 3 (Reg: 42014): 
+  -> Bit 13: Low engine temperature high
+✅ NFPA Alarms 4 (Reg: 42015): 
+  -> Bit 10: Battery #1 OK high
+  -> Bit 11: Battery #2 OK high
+✅ Start Count (Reg: 42016): 2
+✅ Hours since last run (Reg: 42018): 13395 Hours
+✅ Cut-In (Reg: 43029): 90 PSI
+✅ Cut-Out (Reg: 43030): 110 PSI
+
+✨ Total de 21 registros/grupos de alarma con datos significativos mostrados.
+
+🔌 Conexión cerrada.
+(modbus_env) admin@raspberrypi:~/modbus_test $ python explorador_descriciones.py 
+🔍 Intentando conectar a Modbus TCP en 192.168.10.20:502 (Unit ID: 1, Timeout: 3s)
+✅ Conectado al dispositivo Modbus.
+--- Iniciando lectura de registros con descripción ---
+✅ Serial Number (Reg: 40001): "Z1347732"
+✅ Model (Reg: 40041): "GPD-12-220"
+✅ Package Name (Reg: 40081): "Diesel Firepump"
+✅ Software Version (Reg: 40121): "2.9.1.1"
+✅ Nominal AC Voltage (Reg: 40161): 220 V
+✅ Nominal Battery Voltage (Reg: 40162): 12 V
+✅ Alarms Activation 2 (Reg: 41002): 
+  -> Bit 15: Pump On Demand
+✅ Battery 1 Voltage (Reg: 42001): 13.60 V
+✅ Battery 2 Voltage (Reg: 42002): 13.80 V
+✅ Battery 2 Current (Reg: 42004): 7.70 A
+✅ System Pressure (Reg: 42007): 108.10 chosen unit
+✅ NFPA Alarms 1 (Reg: 42012): 
+  -> Bit 4: Engine running high
+✅ NFPA Alarms 2 (Reg: 42013): 
+  -> Bit 0: Pressure start demand high
+  -> Bit 9: Pump demand high
+  -> Bit 10: Control switch in auto high
+✅ NFPA Alarms 4 (Reg: 42015): 
+  -> Bit 10: Battery #1 OK high
+  -> Bit 11: Battery #2 OK high
+✅ Start Count (Reg: 42016): 3
+✅ Cut-In (Reg: 43029): 90 PSI
+✅ Cut-Out (Reg: 43030): 110 PSI
+
+✨ Total de 17 registros/grupos de alarma con datos significativos mostrados.
+
+🔌 Conexión cerrada.
+(modbus_env) admin@raspberrypi:~/modbus_test $ python explorador_descriciones.py 
+🔍 Intentando conectar a Modbus TCP en 192.168.10.20:502 (Unit ID: 1, Timeout: 3s)
+✅ Conectado al dispositivo Modbus.
+--- Iniciando lectura de registros con descripción ---
+✅ Serial Number (Reg: 40001): "Z1347732"
+✅ Model (Reg: 40041): "GPD-12-220"
+✅ Package Name (Reg: 40081): "Diesel Firepump"
+✅ Software Version (Reg: 40121): "2.9.1.1"
+✅ Nominal AC Voltage (Reg: 40161): 220 V
+✅ Nominal Battery Voltage (Reg: 40162): 12 V
+✅ Alarms Activation 1 (Reg: 41001): 
+  -> Bit 6: Engine Trouble
+✅ Alarms Activation 2 (Reg: 41002): 
+  -> Bit 15: Pump On Demand
+✅ Battery 1 Voltage (Reg: 42001): 13.70 V
+✅ Battery 2 Voltage (Reg: 42002): 13.80 V
+✅ Battery 2 Current (Reg: 42004): 6.00 A
+✅ System Pressure (Reg: 42007): 105.50 chosen unit
+✅ NFPA Alarms 1 (Reg: 42012): 
+  -> Bit 4: Engine running high
+✅ NFPA Alarms 2 (Reg: 42013): 
+  -> Bit 0: Pressure start demand high
+  -> Bit 9: Pump demand high
+  -> Bit 10: Control switch in auto high
+✅ NFPA Alarms 4 (Reg: 42015): 
+  -> Bit 10: Battery #1 OK high
+  -> Bit 11: Battery #2 OK high
+✅ Start Count (Reg: 42016): 3
+✅ Cut-In (Reg: 43029): 90 PSI
+✅ Cut-Out (Reg: 43030): 110 PSI
+
+✨ Total de 18 registros/grupos de alarma con datos significativos mostrados.
+
+🔌 Conexión cerrada.
+(modbus_env) admin@raspberrypi:~/modbus_test $ python explorador_descriciones.py 
+🔍 Intentando conectar a Modbus TCP en 192.168.10.20:502 (Unit ID: 1, Timeout: 3s)
+✅ Conectado al dispositivo Modbus.
+--- Iniciando lectura de registros con descripción ---
+✅ Serial Number (Reg: 40001): "Z1347732"
+✅ Model (Reg: 40041): "GPD-12-220"
+✅ Package Name (Reg: 40081): "Diesel Firepump"
+✅ Software Version (Reg: 40121): "2.9.1.1"
+✅ Nominal AC Voltage (Reg: 40161): 220 V
+✅ Nominal Battery Voltage (Reg: 40162): 12 V
+✅ Alarms Activation 1 (Reg: 41001): 
+  -> Bit 6: Engine Trouble
+✅ Alarms Activation 2 (Reg: 41002): 
+  -> Bit 15: Pump On Demand
+✅ Alarms Activation 3 (Reg: 41003): 
+  -> Bit 15: Low Raw Water Flow
+✅ Battery 1 Voltage (Reg: 42001): 13.80 V
+✅ Battery 2 Voltage (Reg: 42002): 13.80 V
+✅ Battery 2 Current (Reg: 42004): 1.10 A
+✅ System Pressure (Reg: 42007): 77.70 chosen unit
+✅ NFPA Alarms 1 (Reg: 42012): 
+  -> Bit 4: Engine running high
+✅ NFPA Alarms 2 (Reg: 42013): 
+  -> Bit 0: Pressure start demand high
+  -> Bit 6: Audible alarm high
+  -> Bit 9: Pump demand high
+  -> Bit 10: Control switch in auto high
+✅ NFPA Alarms 3 (Reg: 42014): 
+  -> Bit 12: Low raw water flow high
+✅ NFPA Alarms 4 (Reg: 42015): 
+  -> Bit 10: Battery #1 OK high
+  -> Bit 11: Battery #2 OK high
+✅ Start Count (Reg: 42016): 3
+✅ Cut-In (Reg: 43029): 90 PSI
+✅ Cut-Out (Reg: 43030): 110 PSI
+
+✨ Total de 20 registros/grupos de alarma con datos significativos mostrados.
+
+🔌 Conexión cerrada.
+(modbus_env) admin@raspberrypi:~/modbus_test $ python explorador_descriciones.py 
+🔍 Intentando conectar a Modbus TCP en 192.168.10.20:502 (Unit ID: 1, Timeout: 3s)
+✅ Conectado al dispositivo Modbus.
+--- Iniciando lectura de registros con descripción ---
+✅ Serial Number (Reg: 40001): "Z1347732"
+✅ Model (Reg: 40041): "GPD-12-220"
+✅ Package Name (Reg: 40081): "Diesel Firepump"
+✅ Software Version (Reg: 40121): "2.9.1.1"
+✅ Nominal AC Voltage (Reg: 40161): 220 V
+✅ Nominal Battery Voltage (Reg: 40162): 12 V
+✅ Alarms Activation 1 (Reg: 41001): 
+  -> Bit 6: Engine Trouble
+✅ Alarms Activation 2 (Reg: 41002): 
+  -> Bit 15: Pump On Demand
+✅ Alarms Activation 3 (Reg: 41003): 
+  -> Bit 15: Low Raw Water Flow
+✅ Battery 1 Voltage (Reg: 42001): 13.80 V
+✅ Battery 2 Voltage (Reg: 42002): 13.80 V
+✅ Battery 2 Current (Reg: 42004): 1.00 A
+✅ System Pressure (Reg: 42007): 106.80 chosen unit
+✅ NFPA Alarms 1 (Reg: 42012): 
+  -> Bit 4: Engine running high
+✅ NFPA Alarms 2 (Reg: 42013): 
+  -> Bit 0: Pressure start demand high
+  -> Bit 6: Audible alarm high
+  -> Bit 9: Pump demand high
+  -> Bit 10: Control switch in auto high
+✅ NFPA Alarms 3 (Reg: 42014): 
+  -> Bit 12: Low raw water flow high
+✅ NFPA Alarms 4 (Reg: 42015): 
+  -> Bit 10: Battery #1 OK high
+  -> Bit 11: Battery #2 OK high
+✅ Start Count (Reg: 42016): 3
+✅ Cut-In (Reg: 43029): 90 PSI
+✅ Cut-Out (Reg: 43030): 110 PSI
+
+✨ Total de 20 registros/grupos de alarma con datos significativos mostrados.
+
+🔌 Conexión cerrada.
+(modbus_env) admin@raspberrypi:~/modbus_test $ python explorador_descriciones.py 
+🔍 Intentando conectar a Modbus TCP en 192.168.10.20:502 (Unit ID: 1, Timeout: 3s)
+✅ Conectado al dispositivo Modbus.
+--- Iniciando lectura de registros con descripción ---
+✅ Serial Number (Reg: 40001): "Z1347732"
+✅ Model (Reg: 40041): "GPD-12-220"
+✅ Package Name (Reg: 40081): "Diesel Firepump"
+✅ Software Version (Reg: 40121): "2.9.1.1"
+✅ Nominal AC Voltage (Reg: 40161): 220 V
+✅ Nominal Battery Voltage (Reg: 40162): 12 V
+✅ Alarms Activation 1 (Reg: 41001): 
+  -> Bit 6: Engine Trouble
+✅ Alarms Activation 2 (Reg: 41002): 
+  -> Bit 5: Engine Overspeed (3)
+  -> Bit 15: Pump On Demand
+✅ Battery 1 Voltage (Reg: 42001): 13.70 V
+✅ Battery 2 Voltage (Reg: 42002): 13.70 V
+✅ Battery 2 Current (Reg: 42004): 4.20 A
+✅ System Pressure (Reg: 42007): 103.30 chosen unit
+✅ NFPA Alarms 1 (Reg: 42012): 
+  -> Bit 9: Overspeed alarm high
+✅ NFPA Alarms 2 (Reg: 42013): 
+  -> Bit 6: Audible alarm high
+  -> Bit 9: Pump demand high
+  -> Bit 10: Control switch in auto high
+✅ NFPA Alarms 4 (Reg: 42015): 
+  -> Bit 10: Battery #1 OK high
+  -> Bit 11: Battery #2 OK high
+✅ Start Count (Reg: 42016): 3
+✅ Cut-In (Reg: 43029): 90 PSI
+✅ Cut-Out (Reg: 43030): 110 PSI
+
+✨ Total de 18 registros/grupos de alarma con datos significativos mostrados.
+
+🔌 Conexión cerrada.
+(modbus_env) admin@raspberrypi:~/modbus_test $ python explorador_descriciones.py 
+🔍 Intentando conectar a Modbus TCP en 192.168.10.20:502 (Unit ID: 1, Timeout: 3s)
+✅ Conectado al dispositivo Modbus.
+--- Iniciando lectura de registros con descripción ---
+✅ Serial Number (Reg: 40001): "Z1347732"
+✅ Model (Reg: 40041): "GPD-12-220"
+✅ Package Name (Reg: 40081): "Diesel Firepump"
+✅ Software Version (Reg: 40121): "2.9.1.1"
+✅ Nominal AC Voltage (Reg: 40161): 220 V
+✅ Nominal Battery Voltage (Reg: 40162): 12 V
+✅ Battery 1 Voltage (Reg: 42001): 13.80 V
+✅ Battery 2 Voltage (Reg: 42002): 13.80 V
+✅ Battery 2 Current (Reg: 42004): 1.10 A
+✅ System Pressure (Reg: 42007): 103.30 chosen unit
+✅ NFPA Alarms 2 (Reg: 42013): 
+  -> Bit 11: Control switch in manual high
+✅ NFPA Alarms 4 (Reg: 42015): 
+  -> Bit 10: Battery #1 OK high
+  -> Bit 11: Battery #2 OK high
+✅ Start Count (Reg: 42016): 3
+✅ Cut-In (Reg: 43029): 90 PSI
+✅ Cut-Out (Reg: 43030): 110 PSI
+
+✨ Total de 15 registros/grupos de alarma con datos significativos mostrados.
+
+🔌 Conexión cerrada.
+(modbus_env) admin@raspberrypi:~/modbus_test $ python explorador_descriciones.py 
+🔍 Intentando conectar a Modbus TCP en 192.168.10.20:502 (Unit ID: 1, Timeout: 3s)
+✅ Conectado al dispositivo Modbus.
+--- Iniciando lectura de registros con descripción ---
+✅ Serial Number (Reg: 40001): "Z1347732"
+✅ Model (Reg: 40041): "GPD-12-220"
+✅ Package Name (Reg: 40081): "Diesel Firepump"
+✅ Software Version (Reg: 40121): "2.9.1.1"
+✅ Nominal AC Voltage (Reg: 40161): 220 V
+✅ Nominal Battery Voltage (Reg: 40162): 12 V
+✅ Battery 1 Voltage (Reg: 42001): 13.80 V
+✅ Battery 2 Voltage (Reg: 42002): 13.80 V
+✅ Battery 2 Current (Reg: 42004): 1.10 A
+✅ System Pressure (Reg: 42007): 103.30 chosen unit
+✅ NFPA Alarms 2 (Reg: 42013): 
+  -> Bit 11: Control switch in manual high
+✅ NFPA Alarms 4 (Reg: 42015): 
+  -> Bit 10: Battery #1 OK high
+  -> Bit 11: Battery #2 OK high
+✅ Start Count (Reg: 42016): 3
+✅ Cut-In (Reg: 43029): 90 PSI
+✅ Cut-Out (Reg: 43030): 110 PSI
+
+✨ Total de 15 registros/grupos de alarma con datos significativos mostrados.
+
+🔌 Conexión cerrada.
+(modbus_env) admin@raspberrypi:~/modbus_test $ 
+

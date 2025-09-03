@@ -1,0 +1,45 @@
+{
+  "bombas": [
+    {
+      "id_bomba": "BOMBA-01-PRINCIPAL",
+      "estado_general": "Encendida",
+      "modo_operacion": "Automático",
+      "presion_psi": 152,
+      "fuente_energia": "Red Eléctrica",
+      "alarmas_activas": [
+        {
+          "codigo": "WARN-002",
+          "descripcion": "Bajo Nivel de Combustible",
+          "severidad": "Advertencia"
+        }
+      ]
+    },
+    {
+      "id_bomba": "BOMBA-02-JOCKEY",
+      "estado_general": "Apagada",
+      "modo_operacion": "Automático",
+      "presion_psi": 145,
+      "fuente_energia": "Red Eléctrica",
+      "alarmas_activas": []
+    },
+    {
+      "id_bomba": "BOMBA-03-EMERGENCIA",
+      "estado_general": "Falla",
+      "modo_operacion": "Manual",
+      "presion_psi": 0,
+      "fuente_energia": "Generador",
+      "alarmas_activas": [
+        {
+          "codigo": "CRIT-001",
+          "descripcion": "Falla de arranque del motor",
+          "severidad": "Critica"
+        },
+        {
+          "codigo": "CRIT-005",
+          "descripcion": "Baja presión de aceite",
+          "severidad": "Critica"
+        }
+      ]
+    }
+  ]
+}
