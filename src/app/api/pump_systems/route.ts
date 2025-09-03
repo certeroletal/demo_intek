@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { pumpSystemsData as initialPumpSystemsData } from '@/lib/sample-data';
 
+export const dynamic = 'force-dynamic'; // Force dynamic rendering
+
 export async function GET() {
   // Return hardcoded sample data for demonstration purposes
   return NextResponse.json(initialPumpSystemsData);
