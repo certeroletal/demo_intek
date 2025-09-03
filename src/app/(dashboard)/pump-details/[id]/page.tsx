@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import type { PumpSystem } from '@/lib/sample-data';
 import PumpClientInfo from '@/components/PumpClientInfo';
@@ -21,14 +21,10 @@ export default function PumpDetailsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    // Check authentication
-    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
-    if (!isLoggedIn) {
-      router.push('/login');
-      return;
-    }
+  // Removed useEffect for authentication check, as it's handled by the layout
 
+  // Fetch pump details based on the ID
+  useEffect(() => {
     if (id) {
       const fetchPumpDetails = async () => {
         try {
@@ -49,7 +45,7 @@ export default function PumpDetailsPage() {
       };
       fetchPumpDetails();
     }
-  }, [id, router]);
+  }, [id]); // Removed router from dependencies as it's not used in this effect
 
   const handleBack = () => {
     router.back(); // Go back to the previous page (dashboard)
